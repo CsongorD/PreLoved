@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Loading from "./Loading/Loading";
 import ProductTable from "./ProductTable";
-import "../css/ProductList.css"
 import Footer from "../Components/Footer";
 import { useClient } from "../Context/ClientContext";
 
