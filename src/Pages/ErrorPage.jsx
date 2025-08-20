@@ -4,3 +4,4 @@
 -import "../css/ErrorMessage.css"
  
  const ErrorPage = () => {
+ }
