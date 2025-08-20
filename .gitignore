@@ -64,3 +64,4 @@ frontend/yarn-debug.log*
 frontend/yarn-error.log*
 
 .idea
+node_modules
