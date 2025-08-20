@@ -6,12 +6,13 @@
 .headerDiv {
   width: 100%;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #D4C9BE;
   display: flex;
   align-items: center;
   justify-content: space-between; /* Align children to the left and right */
   height: 4em;
   padding: 25px;
+  box-shadow: 0 2px 8px rgba(18, 52, 88, 0.1);
 }
 
 .logoContainer {

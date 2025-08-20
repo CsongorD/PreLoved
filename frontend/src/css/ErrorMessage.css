@@ -8,18 +8,19 @@
     flex-direction: column; /* Stack elements on top of each other */
     justify-content: center;
     align-items: center;
-    background-color: rgba(35, 5, 125, 0.616); /* Semi-transparent black background */
+    background-color: rgba(18, 52, 88, 0.9);
     z-index: 9999; /* Higher z-index to ensure it appears in front of everything else */
     border-radius: 2%;
-    border: solid 2px;
+    border: 2px solid #D4C9BE;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    padding: 2rem;
 }
 
 .errormessage-text {
     font-size: 200%;
     font-weight: bolder;
-    color: white;
+    color: #F1EFEF;
     text-align: center;
     white-space: nowrap;
     margin-bottom: 10px;

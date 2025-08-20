@@ -19,9 +19,7 @@
     font-size: 30px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #123458;
     margin-bottom: 20px;
   }
   
@@ -49,6 +47,11 @@
     font-size: 17px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
+    background-color: #F1EFEF;
+    border: 1px solid #D4C9BE;
+    border-radius: 4px;
+    padding: 8px;
+    color: #123458;
  }
 
  .product-type-label {
@@ -61,7 +64,7 @@
     height: 40px;
     border: none;
     font-size: 17px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 2px solid #D4C9BE;
     background: transparent;
   }
   
@@ -69,7 +72,7 @@
   .input-data input:valid ~ label {
     transform: translateY(-20px);
     font-size: 14px;
-    color: #3498db;
+    color: #123458;
   }
   
   .input-data label {
@@ -78,7 +81,7 @@
     bottom: 10px;
     font-size: 16px;
     transition: all 0.3s ease;
-    color: rgba(0, 0, 0, 0.7);
+    color: #030303;
     
   }
   
@@ -94,7 +97,7 @@
     content: "";
     height: 2px;
     width: 100%;
-    background: #3498db;
+    background: #123458;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -124,7 +127,7 @@
     width: 300%;
     position: absolute;
     left: -100%;
-    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    background: #123458;
   transition: all 0.4s;
 }
 
@@ -135,7 +138,7 @@
 .submit-btn .input-data button {
   background: none;
   border: none;
-  color: #5c0d72;
+  color: #F1EFEF;
   font-size: 17px;
   font-weight: 500;
   text-transform: uppercase;

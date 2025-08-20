@@ -5,10 +5,11 @@
     width: 400px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #530a80b6;
+    background-color: #F1EFEF;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #fff;
+    box-shadow: 0 8px 32px rgba(18, 52, 88, 0.1);
+    color: #030303;
+    border: 2px solid #D4C9BE;
   }
   
   /* Styling for the product image */

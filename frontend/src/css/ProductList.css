@@ -7,8 +7,8 @@
 .listitem {
   display: grid;
   place-items: center;
-  background-color: rgb(255, 255, 255, 0.96);
-  border:  2px rgb(165, 51, 99) solid;
+  background-color: #F1EFEF;
+  border: 2px #D4C9BE solid;
   width: 200px;
   height: 150px;
   border-radius: 5%;
@@ -16,13 +16,15 @@
   text-align: center;
   padding: 10% 10% 10% 10%;
   transition: 0.1s;
+  box-shadow: 0 4px 16px rgba(18, 52, 88, 0.1);
 }
 
 .listitem:hover {
-  border:  3px rgb(214, 75, 133) solid;
-  background-color: #fff;
+  border: 3px #123458 solid;
+  background-color: #D4C9BE;
   transform: scale(1.05);
   cursor: pointer;
+  box-shadow: 0 8px 24px rgba(18, 52, 88, 0.2);
 }
 
 .listitem p {
@@ -30,10 +32,8 @@
   padding: 10px;
   font-size: 20px;
   font-weight: 600;
-  background: -webkit-linear-gradient(right, #14bccc, #7501ab, #04c6d8, #460166);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+  color: #123458;
+  margin-bottom: 20px;
 }
 
 .ProductTable {
@@ -57,11 +57,11 @@
 .addButton {
   position: relative;
   align-items: center;
-  background-color: #fee6e3;
-  border: 2px solid #111;
+  background-color: #D4C9BE;
+  border: 2px solid #123458;
   border-radius: 8px;
   box-sizing: border-box;
-  color: #111;
+  color: #123458;
   cursor: pointer;
   display: flex;
   font-family:'Raleway', sans-serif;  font-size: 20px;
@@ -77,5 +77,6 @@
 }
 
 .addButton:hover {
-  background-color: #217dbb;
+  background-color: #123458;
+  color: #F1EFEF;
 }

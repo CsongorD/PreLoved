@@ -13,9 +13,10 @@
   padding-left: 10%;
   padding-right: 25%;
   grid-gap: 30%;
-  border: 5px double rgb(110, 23, 45);
+  border: 5px double #D4C9BE;
   margin: 9%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #F1EFEF;
+  box-shadow: 0 8px 32px rgba(18, 52, 88, 0.1);
 }
 
 
@@ -29,4 +30,5 @@
 
   .headerForms {
     font-family:'Raleway', sans-serif;
+    color: #123458;
   }
