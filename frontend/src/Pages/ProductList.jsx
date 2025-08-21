@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Loading from "./Loading/Loading";
 import ProductTable from "./ProductTable";
-import "../css/ProductList.css"
 import Footer from "../Components/Footer";
 import { useClient } from "../Context/ClientContext";
 
@@ -37,9 +36,12 @@ const ProductList = () => {
     return <Loading />;
   }
 
-  return <div>
-    <ProductTable products={data}/>
-    <Footer />
-  </div>;
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-accent-100">
+      <ProductTable products={data}/>
+      <Footer />
+    </div>
+  );
 };
+
 export default ProductList;

@@ -1,14 +1,8 @@
-import "../css/ProductList.css";
-
 const ProductLayoutInList = ({ product }) => {
   return (
-    <div>
-      <style>
-        @import
-        url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-      </style>
-      <p>{product.name} </p>
-      <p>${product.price}</p>
+    <div className="text-center space-y-2">
+      <h3 className="font-semibold text-neutral-800 text-sm line-clamp-2">{product.name}</h3>
+      <p className="text-lg font-bold text-primary-600">${product.price}</p>
     </div>
   );
 };
