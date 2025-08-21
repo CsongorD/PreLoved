@@ -1,49 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import LandingPage from './Pages/LandingPage';
-import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from './Pages/ErrorPage';
-import ProductList from './Pages/ProductList';
-import SignUpForm from './Pages/SignUpForm';
-import LoginForm from './Pages/LoginForm';
-import ProductPage from './Pages/ProductPage';
-import NewProductCreator from './Pages/NewProductCreator';
-import { ClientContextProvider } from './Context/ClientContext';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ClientContextProvider } from './context/ClientContext.jsx';
+import reportWebVitals from './reportWebVitals.js';
 
+// Styles
+import './styles/index.css';
+
+// Pages
+import LandingPage from './pages/LandingPage.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import ProductListPage from './pages/ProductListPage.jsx';
+import SignUpPage from './pages/SignUpPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import ProductDetailPage from './pages/ProductDetailPage.jsx';
+import CreateProductPage from './pages/CreateProductPage.jsx';
 
 const router = createBrowserRouter([
-{
-  path: "/",
-  errorElement: <ErrorPage />,
-  children: [
-    {
-      path: "/",
-      element: <ProductList />
-    },
-    {
-      path: "/landing",
-      element: <LandingPage />
-    },
-    {
-      path: "/signup",
-      element: <SignUpForm />
-    },
-    {
-      path: "/login",
-      element: <LoginForm />
-    },
-    {
-      path:"/products/:id",
-      element:<ProductPage/>
-    },
-    {
-      path: "/newproduct",
-      element: <NewProductCreator />
-    }
-  ]
-}
+  {
+    path: '/',
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <ProductListPage />
+      },
+      {
+        path: '/landing',
+        element: <LandingPage />
+      },
+      {
+        path: '/signup',
+        element: <SignUpPage />
+      },
+      {
+        path: '/login',
+        element: <LoginPage />
+      },
+      {
+        path: '/products/:id',
+        element: <ProductDetailPage />
+      },
+      {
+        path: '/newproduct',
+        element: <CreateProductPage />
+      }
+    ]
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
