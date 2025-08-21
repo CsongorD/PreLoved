@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import Footer from "../Components/Footer";
-import { useClient } from "../Context/ClientContext";
 import Loading from "./Loading/Loading";
 import ProductTable from "./ProductTable";
+import "../css/ProductList.css"
+import Footer from "../Components/Footer";
+import { useClient } from "../Context/ClientContext";
 
 const fetchProducts = (signal) => {
   return fetch("/products/all", { signal }).then((res) => res.json());
 };
 
 const ProductList = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+ 
   const client = useClient();
 
   useEffect(() => {
@@ -36,11 +37,9 @@ const ProductList = () => {
     return <Loading />;
   }
 
-  return (
-    <div>
-      <ProductTable products={data} />
-      <Footer />
-    </div>
-  );
+  return <div>
+    <ProductTable products={data}/>
+    <Footer />
+  </div>;
 };
 export default ProductList;
