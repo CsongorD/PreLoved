@@ -1,3 +1,4 @@
+```java
 package com.codecool.elproyectegrande.dao.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -22,7 +23,15 @@ public class Product {
     private String description;
     private double price;
     private String image;
-    private Long seller_id;
-    private Long buyer_id;
-    public boolean isAvailable(){return buyer_id == null;}
+
+    @ManyToOne // Many products to one seller
+    @JoinColumn(name = "seller_id") // This maps to the column in the product table
+    private Client seller; // Changed from Long seller_id
+
+    @ManyToOne // Many products to one buyer
+    @JoinColumn(name = "buyer_id") // This maps to the column in the product table
+    private Client buyer; // Changed from Long buyer_id
+
+    public boolean isAvailable(){return buyer == null;} // Updated to use Client object
 }
+```

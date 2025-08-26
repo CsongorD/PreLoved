@@ -1,3 +1,4 @@
+```java
 package com.codecool.elproyectegrande.service;
 
 
@@ -36,7 +37,7 @@ public class ClientService{
         Client newClient = Client.builder()
                 .clientName(client.clientName())
                 .password(passwordEncoder.encode(client.password()))
-                .role(Role.USER.toString())
+                .role(Role.USER) // Set role directly as Role enum
                 .build();
         clientDAO.save(newClient);
     }
@@ -53,3 +54,4 @@ public class ClientService{
     }
 
 }
+```

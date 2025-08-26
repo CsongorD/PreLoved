@@ -1,3 +1,4 @@
+```java
 package com.codecool.elproyectegrande.controller;
 
 import com.codecool.elproyectegrande.controller.dto.NewClientDTO;
@@ -34,8 +35,9 @@ public class ClientController {
     public ResponseEntity<?> addNewClient(@RequestBody NewClientDTO clientDTO) {
         String clientName = clientDTO.clientName();
         String password = clientDTO.password();
-        if(clientName.equals("") || password.equals("")){
-            return ResponseEntity.badRequest().build();
+        // Improved validation and response message
+        if(clientName == null || clientName.trim().isEmpty() || password == null || password.trim().isEmpty()){
+            return ResponseEntity.badRequest().body("Username and password cannot be empty.");
         }
         clientService.addNewClient(clientDTO);
         return ResponseEntity.ok().build();
@@ -52,3 +54,4 @@ public class ClientController {
     }
 
 }
+```

@@ -1,3 +1,4 @@
+```java
 package com.codecool.elproyectegrande.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,13 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @Configuration
 @EnableWebSecurity(debug = true)
 public class SecurityConfig {
-    private AuthenticationManager authenticationManager;
+    // Removed AuthenticationManager autowiring as it's not directly used here
     private TokenService tokenService;
     private CustomUserDetailService customUserDetailService;
 
     @Autowired
     public SecurityConfig(AuthenticationManager authenticationManager, TokenService tokenService, CustomUserDetailService customUserDetailService) {
-        this.authenticationManager = authenticationManager;
+        // authenticationManager parameter can be removed if not used in constructor logic
         this.tokenService = tokenService;
         this.customUserDetailService = customUserDetailService;
     }
@@ -48,3 +49,4 @@ public class SecurityConfig {
         return http.build();
     }
 }
+```

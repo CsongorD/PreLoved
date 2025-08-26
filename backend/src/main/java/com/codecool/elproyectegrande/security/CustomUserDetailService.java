@@ -1,3 +1,4 @@
+```java
 package com.codecool.elproyectegrande.security;
 
 import com.codecool.elproyectegrande.dao.ClientDAO;
@@ -21,7 +22,12 @@ public class CustomUserDetailService implements UserDetailsService {
         if (client == null) {
             throw new UsernameNotFoundException(username + " not found.");
         }
-        UserDetails user = User.withUsername(client.getClientName()).password(client.getPassword()).authorities("USER").build();
+        // Use the client's actual role from the database
+        UserDetails user = User.withUsername(client.getClientName())
+                               .password(client.getPassword())
+                               .authorities(client.getRole().name()) // Use .name() for enum
+                               .build();
         return user;
     }
 }
+```

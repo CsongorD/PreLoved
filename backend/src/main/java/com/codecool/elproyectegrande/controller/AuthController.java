@@ -1,3 +1,4 @@
+```java
 package com.codecool.elproyectegrande.controller;
 
 import com.auth0.jwt.JWT;
@@ -5,7 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.codecool.elproyectegrande.controller.dto.NewClientDTO;
 import com.codecool.elproyectegrande.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus; // Changed to HttpStatus
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -46,26 +47,17 @@ public class AuthController {
                 roles.add(authority.getAuthority());
             }
 
-
-
-            /*String key = "lacinagyoneroskulcsalacinagyoneroskulcsalacinagyoneroskulcsa";
-            Algorithm algorithm = Algorithm.HMAC256(key.getBytes());
-
-            String token = JWT.create()
-                    .withSubject(String.valueOf(authentication.getPrincipal()))
-                    .withClaim("roles", roles)
-                    .sign(algorithm);*/
             String token = tokenService.generateToken(authentication);
 
             return ResponseEntity.ok().header("Authorization", "Bearer " + token).build();
 
         } catch (UsernameNotFoundException exception){
-            //no username found
-            return new ResponseEntity<Error>(HttpStatusCode.valueOf(404));
+            // Username not found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Username not found!");
         } catch (AuthenticationException exception){
-            //bad password
-            return new ResponseEntity<Error>(HttpStatusCode.valueOf(401));
-
+            // Bad password or other authentication failure
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials!");
         }
     }
 }
+```
