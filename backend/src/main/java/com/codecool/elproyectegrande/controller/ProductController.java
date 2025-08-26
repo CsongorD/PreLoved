@@ -42,14 +42,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addNewProduct(@RequestBody NewProductDTO productDTO) { // Removed throws IOException
-        try {
-            productService.addNewProduct(productDTO);
-            return ResponseEntity.ok().build();
-        } catch (IOException e) {
-            logger.error("Failed to add product due to image service error: " + e.getMessage(), e);
-            return ResponseEntity.internalServerError().body("Failed to add product due to image service error.");
-        }
+    public ResponseEntity<?> addNewProduct(@RequestBody NewProductDTO productDTO) {
+        productService.addNewProduct(productDTO);
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
