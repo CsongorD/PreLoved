@@ -1,8 +1,8 @@
 package com.codecool.elproyectegrande.dao;
 
-import com.codecool.elproyectegrande.dao.model.Client;
-import com.codecool.elproyectegrande.dao.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.codecool.elproyectegrande.dao.model.Client;
 
 public interface ClientDAO extends JpaRepository<Client, Long> {
 

@@ -1,18 +1,18 @@
 package com.codecool.elproyectegrande.service;
 
-import com.codecool.elproyectegrande.controller.dto.NewProductDTO;
-import com.codecool.elproyectegrande.dao.model.Product;
-import com.codecool.elproyectegrande.dao.ProductDAO;
-import com.codecool.elproyectegrande.dao.ClientDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import com.codecool.elproyectegrande.dao.model.Client;
-
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
+import com.codecool.elproyectegrande.controller.dto.NewProductDTO;
+import com.codecool.elproyectegrande.dao.ClientDAO;
+import com.codecool.elproyectegrande.dao.ProductDAO;
+import com.codecool.elproyectegrande.dao.model.Client;
+import com.codecool.elproyectegrande.dao.model.Product;
 
 @Service
 public class ProductService {
