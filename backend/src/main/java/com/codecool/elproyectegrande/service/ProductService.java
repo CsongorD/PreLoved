@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.service;
 
 import com.codecool.elproyectegrande.controller.dto.NewProductDTO;
@@ -122,4 +121,3 @@ public class ProductService {
                                  .collect(Collectors.toList());
     }
 }
-```

@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.controller;
 
 
@@ -64,4 +63,3 @@ public class ProductController {
     }
 
 }
-```

@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.security;
 
 import com.codecool.elproyectegrande.dao.ClientDAO;
@@ -30,4 +29,3 @@ public class CustomUserDetailService implements UserDetailsService {
         return user;
     }
 }
-```

@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.dao.model;
 
 import com.codecool.elproyectegrande.security.Role;
@@ -37,4 +36,3 @@ public class Client {
     @JsonManagedReference(value="buyer-products") // Unique value for this relationship
     private List<Product> productsBought;
 }
-```

@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -45,7 +44,7 @@ public class BearerTokenAuthenticatingFilter extends OncePerRequestFilter {
             } catch (ExpiredJwtException e) {
                 logger.warn("The token has expired", e);
             } catch (SignatureException e) {
-                logger.error("Invalid JWT signature or tampered token."); // Corrected error message
+                logger.error("Invalid JWT signature or tampered token.");
             }
         } else {
             logger.warn("Couldn't find bearer string, header will be ignored");
@@ -65,4 +64,3 @@ public class BearerTokenAuthenticatingFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
-```

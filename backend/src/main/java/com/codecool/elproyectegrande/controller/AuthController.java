@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.controller;
 
 import com.auth0.jwt.JWT;
@@ -60,4 +59,3 @@ public class AuthController {
         }
     }
 }
-```

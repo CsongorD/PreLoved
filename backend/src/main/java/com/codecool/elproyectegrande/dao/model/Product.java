@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.dao.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -34,4 +33,3 @@ public class Product {
 
     public boolean isAvailable(){return buyer == null;} // Updated to use Client object
 }
-```

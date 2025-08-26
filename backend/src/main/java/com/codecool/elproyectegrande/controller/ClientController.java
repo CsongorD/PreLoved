@@ -1,4 +1,3 @@
-```java
 package com.codecool.elproyectegrande.controller;
 
 import com.codecool.elproyectegrande.controller.dto.NewClientDTO;
@@ -54,4 +53,3 @@ public class ClientController {
     }
 
 }
-```
