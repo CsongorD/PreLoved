@@ -132,7 +132,7 @@ public class ProductService {
         if (updateProduct.getDescription() != null) {
             currentProduct.setDescription(updateProduct.getDescription());
         }
-        if (updateProduct.getPrice() != null && updateProduct.getPrice() > 0) {
+        if (updateProduct.getPrice() != null && updateProduct.getPrice() > 0.0) {
             currentProduct.setPrice(updateProduct.getPrice());
         }
         if (updateProduct.getType() != null) {

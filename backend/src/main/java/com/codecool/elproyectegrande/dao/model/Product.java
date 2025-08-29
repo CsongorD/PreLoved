@@ -30,7 +30,7 @@ public class Product {
     private String name;
     private String type;
     private String description;
-    private double price;
+    private Double price;
     private String image;
 
     @ManyToOne // Many products to one seller
