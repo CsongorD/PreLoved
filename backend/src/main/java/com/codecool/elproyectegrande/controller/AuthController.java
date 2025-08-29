@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.codecool.elproyectegrande.dto.request.LoginRequest;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus; // Changed to HttpStatus
 import org.springframework.http.ResponseEntity;
@@ -18,11 +21,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.codecool.elproyectegrande.controller.dto.NewClientDTO;
 import com.codecool.elproyectegrande.security.TokenService;
 
+/**
+ * REST controller for authentication operations.
+ * Handles user login and token generation.
+ */
 @RestController
 @RequestMapping
+@RequiredArgsConstructor
 public class AuthController {
     private AuthenticationManager authenticationManager;
     private TokenService tokenService;
@@ -34,11 +41,17 @@ public class AuthController {
     }
 
 
+    /**
+     * Authenticates a user and returns a JWT token.
+     *
+     * @param loginRequest the login credentials
+     * @return JWT token in Authorization header
+     */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody NewClientDTO clientDTO) {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest) {
         try {
             Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(clientDTO.clientName(), clientDTO.password()));
+                    new UsernamePasswordAuthenticationToken(loginRequest.getClientName(), loginRequest.getPassword()));
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
             List<String> roles = new ArrayList<>(authorities.size());
             for (GrantedAuthority authority : authorities) {

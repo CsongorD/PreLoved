@@ -1,55 +1,87 @@
 package com.codecool.elproyectegrande.controller;
 
-import com.codecool.elproyectegrande.controller.dto.NewClientDTO;
+import com.codecool.elproyectegrande.dto.request.CreateClientRequest;
+import com.codecool.elproyectegrande.dto.response.ClientResponse;
 import com.codecool.elproyectegrande.dao.model.Client;
 import com.codecool.elproyectegrande.service.ClientService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST controller for client-related operations.
+ * Handles HTTP requests for client management.
+ */
 @RestController
 @RequestMapping("/clients")
+@RequiredArgsConstructor
 public class ClientController {
 
-    private ClientService clientService;
+    private final ClientService clientService;
 
-    @Autowired
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
-    }
-
+    /**
+     * Retrieves all clients.
+     *
+     * @return list of client response DTOs
+     */
     @GetMapping
-    public List<Client> getAllClients() {
-        return clientService.getAllClients();
+    public ResponseEntity<List<ClientResponse>> getAllClients() {
+        List<ClientResponse> clients = clientService.getAllClients();
+        return ResponseEntity.ok(clients);
     }
 
+    /**
+     * Retrieves a client by ID.
+     *
+     * @param id the client ID
+     * @return the client response DTO
+     */
     @GetMapping("/{id}")
-    public Client getClientByID(@PathVariable Long id) {
-        return clientService.getClientById(id);
+    public ResponseEntity<ClientResponse> getClientById(@PathVariable Long id) {
+        ClientResponse client = clientService.getClientById(id);
+        return ResponseEntity.ok(client);
     }
 
+    /**
+     * Creates a new client.
+     *
+     * @param request the client creation request
+     * @return the created client response DTO
+     */
     @PostMapping
-    public ResponseEntity<?> addNewClient(@RequestBody NewClientDTO clientDTO) {
-        String clientName = clientDTO.clientName();
-        String password = clientDTO.password();
-        // Improved validation and response message
-        if(clientName == null || clientName.trim().isEmpty() || password == null || password.trim().isEmpty()){
-            return ResponseEntity.badRequest().body("Username and password cannot be empty.");
-        }
-        clientService.addNewClient(clientDTO);
+    public ResponseEntity<ClientResponse> createClient(@Valid @RequestBody CreateClientRequest request) {
+        ClientResponse createdClient = clientService.createClient(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdClient);
+    }
+
+    /**
+     * Updates an existing client.
+     *
+     * @param id the client ID
+     * @param updatedClient the updated client data
+     * @return success response
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateClientById(@PathVariable("id") Long id, @RequestBody Client updatedClient) {
+        clientService.updateClientById(id, updatedClient);
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/{id}")
-    public void updateClientById(@PathVariable("id") Long id, @RequestBody Client updatedClient) {
-        clientService.updateClientById(id, updatedClient);
-    }
-
+    /**
+     * Deletes a client by ID.
+     *
+     * @param id the client ID
+     * @return success response
+     */
     @DeleteMapping("/{id}")
-    public void deleteClientById(@PathVariable("id") Long id){
+    public ResponseEntity<Void> deleteClientById(@PathVariable("id") Long id) {
         clientService.deleteClientById(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
