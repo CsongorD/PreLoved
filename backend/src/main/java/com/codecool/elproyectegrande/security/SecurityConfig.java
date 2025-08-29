@@ -29,12 +29,35 @@ public class SecurityConfig {
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .addFilterBefore(new BearerTokenAuthenticatingFilter(tokenService, customUserDetailService), BasicAuthenticationFilter.class)
-                //.addFilterBefore(new AuthenticationFilter(authenticationManager), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((auth) -> {
-                    auth.requestMatchers("/","index","index.html","/static/css/**", "/static/js/**","/static/media/**","/public/**","/static/**").permitAll();
-                    auth.requestMatchers(HttpMethod.GET, "/products/all","/clients/**", "/error").permitAll();
-                    auth.requestMatchers(HttpMethod.POST,"/login","/clients", "/products").permitAll();
-                    auth.requestMatchers(HttpMethod.GET,"/products/**").hasAnyAuthority("USER","ADMIN");
+                    // Static resources and frontend - accessible to everyone
+                    auth.requestMatchers("/", "index", "index.html", "/static/css/**", "/static/js/**", "/static/media/**", "/public/**", "/static/**").permitAll();
+                    
+                    // Authentication endpoints - accessible to everyone
+                    auth.requestMatchers(HttpMethod.POST, "/login", "/clients").permitAll();
+                    
+                    // Product viewing - accessible to everyone (without login)
+                    auth.requestMatchers(HttpMethod.GET, "/products/all", "/products/available").permitAll();
+                    
+                    // Individual product viewing - requires USER or ADMIN role
+                    auth.requestMatchers(HttpMethod.GET, "/products/**").hasAnyAuthority("USER", "ADMIN");
+                    
+                    // Product creation - requires USER or ADMIN role
+                    auth.requestMatchers(HttpMethod.POST, "/products").hasAnyAuthority("USER", "ADMIN");
+                    
+                    // Product updates - requires USER or ADMIN role (business logic handles ownership)
+                    auth.requestMatchers(HttpMethod.PUT, "/products/**").hasAnyAuthority("USER", "ADMIN");
+                    
+                    // Product deletion - requires USER or ADMIN role (business logic handles ownership/admin privileges)
+                    auth.requestMatchers(HttpMethod.DELETE, "/products/**").hasAnyAuthority("USER", "ADMIN");
+                    
+                    // Client management - requires authentication
+                    auth.requestMatchers("/clients/**").hasAnyAuthority("USER", "ADMIN");
+                    
+                    // Error pages - accessible to everyone
+                    auth.requestMatchers("/error").permitAll();
+                    
+                    // All other requests require authentication
                     auth.anyRequest().authenticated();
                         }
                 )
