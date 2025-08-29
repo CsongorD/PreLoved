@@ -3,13 +3,6 @@ package com.codecool.elproyectegrande.controller;
 
 import java.util.List;
 
-import com.codecool.elproyectegrande.dto.request.CreateProductRequest;
-import com.codecool.elproyectegrande.dto.response.ProductResponse;
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger; // Import Logger
-import org.slf4j.LoggerFactory; // Import LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codecool.elproyectegrande.dao.model.Product;
+import com.codecool.elproyectegrande.dto.request.CreateProductRequest;
+import com.codecool.elproyectegrande.dto.response.ProductResponse;
 import com.codecool.elproyectegrande.service.ProductService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 /**
  * REST controller for product-related operations.

@@ -3,14 +3,6 @@ package com.codecool.elproyectegrande.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.codecool.elproyectegrande.dto.request.CreateProductRequest;
-import com.codecool.elproyectegrande.dto.response.ProductResponse;
-import com.codecool.elproyectegrande.exception.BusinessLogicException;
-import com.codecool.elproyectegrande.exception.ResourceNotFoundException;
-import com.codecool.elproyectegrande.mapper.ProductMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -20,6 +12,14 @@ import com.codecool.elproyectegrande.dao.ClientDAO;
 import com.codecool.elproyectegrande.dao.ProductDAO;
 import com.codecool.elproyectegrande.dao.model.Client;
 import com.codecool.elproyectegrande.dao.model.Product;
+import com.codecool.elproyectegrande.dto.request.CreateProductRequest;
+import com.codecool.elproyectegrande.dto.response.ProductResponse;
+import com.codecool.elproyectegrande.exception.BusinessLogicException;
+import com.codecool.elproyectegrande.exception.ResourceNotFoundException;
+import com.codecool.elproyectegrande.mapper.ProductMapper;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Service layer for product-related business operations.

@@ -1,23 +1,24 @@
 package com.codecool.elproyectegrande.service;
 
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.codecool.elproyectegrande.dao.ClientDAO;
+import com.codecool.elproyectegrande.dao.model.Client;
 import com.codecool.elproyectegrande.dto.request.CreateClientRequest;
 import com.codecool.elproyectegrande.dto.response.ClientResponse;
 import com.codecool.elproyectegrande.exception.BusinessLogicException;
 import com.codecool.elproyectegrande.exception.ResourceNotFoundException;
 import com.codecool.elproyectegrande.mapper.ClientMapper;
-import com.codecool.elproyectegrande.dao.ClientDAO;
 import com.codecool.elproyectegrande.security.Role;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import com.codecool.elproyectegrande.dao.model.Client;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Service layer for client-related business operations.
