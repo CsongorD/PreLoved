@@ -119,7 +119,7 @@ public class ProductService {
             throw new ResourceNotFoundException("Product", id);
         }
         
-        // Check if the current user is the seller
+        // Check if the current user is the seller (only sellers can update their products)
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
         if (!currentProduct.getSeller().getClientName().equals(currentUsername)) {
@@ -146,11 +146,11 @@ public class ProductService {
 
     /**
      * Deletes a product by its ID.
-     * Only the seller of the product can delete it.
+     * Only the seller of the product or an ADMIN can delete it.
      *
      * @param id the product ID
      * @throws ResourceNotFoundException if product is not found
-     * @throws BusinessLogicException if user is not the seller
+     * @throws BusinessLogicException if user is not the seller and not an admin
      */
     @Transactional
     public void deleteProductById(Long id) {
@@ -160,11 +160,17 @@ public class ProductService {
             throw new ResourceNotFoundException("Product", id);
         }
         
-        // Check if the current user is the seller
+        // Check if the current user is the seller or has ADMIN role
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
-        if (!product.getSeller().getClientName().equals(currentUsername)) {
-            throw new BusinessLogicException("Only the seller can delete this product");
+        
+        // Check if user is ADMIN
+        boolean isAdmin = authentication.getAuthorities().stream()
+                .anyMatch(authority -> authority.getAuthority().equals("ADMIN"));
+        
+        // Allow deletion if user is the seller OR if user is an admin
+        if (!product.getSeller().getClientName().equals(currentUsername) && !isAdmin) {
+            throw new BusinessLogicException("Only the seller or an admin can delete this product");
         }
         
         productDAO.deleteById(id);
