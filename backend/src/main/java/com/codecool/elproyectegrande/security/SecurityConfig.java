@@ -31,7 +31,8 @@ public class SecurityConfig {
                 .addFilterBefore(new BearerTokenAuthenticatingFilter(tokenService, customUserDetailService), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((auth) -> {
                     // Static resources and frontend - accessible to everyone
-                    auth.requestMatchers("/", "index", "index.html", "/static/css/**", "/static/js/**", "/static/media/**", "/public/**", "/static/**").permitAll();
+                    auth.requestMatchers("/", "/index.html", "/static/**", "/assets/**", "/favicon.ico", "/manifest.json", "/robots.txt").permitAll();
+                    auth.requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**", "/media/**").permitAll();
                     
                     // Authentication endpoints - accessible to everyone
                     auth.requestMatchers(HttpMethod.POST, "/login", "/clients").permitAll();
