@@ -103,7 +103,7 @@ To run this project, you need to have the following:
 
 :one: Java <br>
 :two: Apache Maven  <br>
-:three: IntelliJ <br>
+:three: IntelliJ / VSCode <br>
 :four: PostgreSQL <br>
 :five: Docker (Optional) <br>
 
@@ -113,32 +113,33 @@ To run this project, you need to have the following:
 
 :one: Clone the repository to your local machine
    ```sh
-   git clone https://github.com/CodecoolGlobal/epg-4-java-placi0325.git
+   git clone git@github.com:CsongorD/epg-4-CsongorD.git
    ```
 :two: Create a database in PostgreSQL named "preloved"
 
-:three: Open the project in IntelliJ, and set up these environment variables: <br>
-   * DATABASE_NAME= preloved <br>
-   * DATABASE_USERNAME=_your username_<br>
-   * DATABASE_PASSWORD=_your password_<br>
+:three: Run the 01-init-db.sql code in your database for creating the necessarry tables. Optionally run the 02-load-data.sql to populate the product table.
 
-:four: To start the fronend, you have to go into the frontend folder and run the following command in the terminal:
+:four: Open the application.properties (backend/src/main/resources/application.properties), and set up these environment variables: <br>
+   * spring.datasource.url=${DATABASE_URL:your_database_url} <br>
+   * spring.datasource.username=${DATABASE_USERNAME:your_database_username}<br>
+   * spring.datasource.password=${DATABASE_PASSWORD:your_database_password}<br>
+
+:five: To start the backend, run the following commands in the terminal:
+
   ```sh
-      npm start
-   ```
-
-:five: To start the backend, run the application by the "Run" button in the top right corner or with Shift + F10 shortcut
-
-:six: If the frontend and the backend are running, the website will be available on
-  ```sh
-      http://localhost:3000/
+      cd backend/
+      ./mvnw spring-boot:run
   ```
+
+:six: If the backend started successfully, you can view the site on the http://localhost:8080/
+
+
 <br>
 <p align="center"> <b>OR</b> </p>
 <br>
 If you want to run the application dockerized: <br>
  <br>
-:one: Open a terminal, move into the `epg-4-java-placi0325` folder <br>
+:one: Open a terminal, move into the `epg-4-CsongorD` folder <br>
 
 <br>
 
