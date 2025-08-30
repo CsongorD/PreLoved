@@ -1,4 +1,4 @@
-FROM postgres:15.1-alpine
+FROM postgres:13.22-trixie
 
 LABEL author="Bolhaszook"
 LABEL description="Postgres Image for demo"

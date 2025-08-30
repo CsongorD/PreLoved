@@ -1,18 +1,17 @@
-version: '3.8'
 services:
   app:
     container_name: app
     build:
       context: .
-      dockerfile: app.dockerfile
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
     environment:
-       DATABASE_URL: postgres
-       DATABASE_USERNAME: postgres
-       DATABASE_PASSWORD: postgres
+      DATABASE_URL: jdbc:postgresql://postgres:5432/preloved
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
     depends_on:
-        - postgres
+      - postgres
 
   postgres:
     build:
@@ -23,9 +22,15 @@ services:
     restart: unless-stopped
 
     environment:
-        POSTGRES_DB: preloved
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
-        PGDATA: /data/postgres
+      POSTGRES_DB: preloved
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
     ports:
       - 5432:5432
+
+    volumes:
+      - postgres_data:/data/postgres
+
+volumes:
+  postgres_data:
