@@ -1,1 +1,0 @@
-docker run --name epg4-app --rm -dp 8080:8080 epg4
