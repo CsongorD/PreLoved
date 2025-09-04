@@ -105,7 +105,7 @@ git clone git@github.com:CsongorD/PreLoved.git
 
 :four: Open the application.properties (backend/src/main/resources/application.properties), and set up these environment variables: <br>
 
-- spring.datasource.url=${DATABASE_URL:your_database_url} <br>
+- spring.datasource.url=${DATABASE_URL:your_database_url}<br> (for example: jdbc:postgresql://localhost:5432/preloved)
 - spring.datasource.username=${DATABASE_USERNAME:your_database_username}<br>
 - spring.datasource.password=${DATABASE_PASSWORD:your_database_password}<br>
 
