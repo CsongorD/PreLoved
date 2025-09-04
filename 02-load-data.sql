@@ -1,8 +1,8 @@
 -- LOAD DATAS
 INSERT INTO product(id, name,type, description, price,image,seller_id,buyer_id)
 VALUES
-    (101, 'The Shaw shank Redemption','movie','1994 HORROR', 15.99,'https://m.media-amazon.com/images/I/51zUbui+gbL._AC_UF894,1000_QL80_.jpg',1,1),
-    (102, 'Ant Man','2019 ADVENTURE','movie', 15.00,'https://upload.wikimedia.org/wikipedia/en/1/12/Ant-Man_%28film%29_poster.jpg',1,1),
-    (103, 'Fallen','1996 HORROR','movie', 23.99,'https://m.blog.hu/mi/mindennapmozi/image/9_22fallen.jpg',1,1),
-    (104, 'Fast & Furious 7','2018 ACTION','movie', 36.00,'https://static.wikia.nocookie.net/fastandfurious/images/a/aa/FF7_officialposter.jpg/revision/latest?cb=20200323092117',1,1),
-    (105, 'Harry Potter','2000 ACTION','movie', 26.50,'https://assets.mycast.io/posters/harry-potter-2000-fan-casting-poster-70869-medium.jpg?1607724110',1,1)
+    (201, 'iPhone 11','Electronics','Good condition, minor scratches', 499.99,'https://www.apple.com/newsroom/images/tile-images/Apple_iphone_11-rosette-family-lineup-091019.jpg.news_app_ed.jpg',1,NULL),
+    (202, 'Samsung Galaxy S20','Electronics','Like new, comes with original box', 599.99,'https://s13emagst.akamaized.net/products/31813/31812008/images/res_b19dc166580105a4976dd637e7075af9.jpg',1,NULL),
+    (203, 'Dell XPS 13','Computers','Lightly used, excellent battery life', 899.99,'https://m.media-amazon.com/images/I/710EGJBdIML.jpg',1,NULL),
+    (204, 'Sony WH-1000XM4','Audio','Noise-cancelling headphones, great sound quality', 299.99,'https://sony.scene7.com/is/image/sonyglobalsolutions/wh-ch720_Primary_image?$categorypdpnav$&fmt=png-alpha',1,NULL),
+    (205, 'Apple Watch Series 6','Wearables','Good condition, includes charger', 399.99,'https://istyle.hu/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/a/p/apple_watch_series_6_gps_44mm_space_gray_aluminum_black_sport_band_pdp_image_position-1__wwen_5.jpg',1,NULL);
